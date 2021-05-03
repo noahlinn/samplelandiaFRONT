@@ -1,7 +1,7 @@
 # SampleLandia 
 
 ## Objective
-    SampleLandia is an application to provide users with audio samples based upon their search requirements and also upload their own samples. This application utilizes the freesound.org API.
+    SampleLandia is an application to provide users with audio samples based upon their search requirements and also HOPEFULLY upload their own samples. This application utilizes the freesound.org API.
 
 ## Wireframes
 
@@ -24,3 +24,12 @@
     -When logged in you can save samples as favorites to your profile
     -when logged in there is a create tab where you can upload samples of your own
     -when you click on a sample that you uploaded there will be an edit button where you can edit its information 
+
+ ## MVP
+    -Login & Signup
+    -User Authorization
+    -password hashing
+    -Be able to search for recipes that align with their diet
+    -Save recipes
+    -Saved recipes show on their profile
+    -Log out 
