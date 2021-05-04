@@ -9,9 +9,10 @@ const NavBar = () => {
         <div>
             <Link to='/'>Home</Link>
             {'  |   '}
-            <Link to='/search'>Search</Link>
-            {'  |   '}
+
             {localStorage.getItem('userId') ? <>
+                <Link to='/search'>Search</Link>
+                {'  |   '}
                 <Link to='/upload'>Upload</Link>
                 {'  |   '}
                 <Link to='/profile'>Profile</Link>

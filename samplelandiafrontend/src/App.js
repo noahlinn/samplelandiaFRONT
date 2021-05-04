@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState,useEffect,useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import SearchPage from './pages/SearchPage'
 import HomePage from './pages/HomePage'
 import SignUpPage from './pages/SignUpPage'
@@ -18,6 +18,8 @@ function App() {
 
   const { userState } = useContext(UserContext)
   const [user, setUser] = userState
+  const [favSamples, setFavSamples] = useState([])
+  const [favIds, setFavIds] = useState([])
 
   const getUserInfo = async () => {
     const userId = localStorage.getItem('userId')
@@ -35,7 +37,61 @@ function App() {
       console.log(error)
     }
   }
-  useEffect(() => {getUserInfo()}, [])
+
+  useEffect(() => { getUserInfo() }, [])
+
+  const saveSample = async (sampleId, sampleName) => {
+    try {
+      let res = await axios.post(`${backEnd}/users/save`, {
+        sampleId: sampleId,
+        sampleName: sampleName
+      }, {
+        headers: {
+          Authorization: user.id
+        }
+      })
+      console.log(res)
+      getSavedSamples()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getSavedSamples = async () => {
+    try {
+      let res = await axios.get(`${backEnd}/users/savedsamples`, {
+        headers: {
+          Authorization: user.id
+        }
+      })
+      setFavSamples(res.data.favoirteSample)
+      let favIds = []
+      for(let each of res.data.favoirteSample){
+        favIds.push(each.sampleId)
+      }
+      setFavIds(favIds)
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => { getSavedSamples() }, [user])
+
+  const deleteSaved = async (sampleId) => {
+    try {
+      let res = await axios.delete(`${backEnd}/users/delete/${sampleId}`,  {
+        headers: {
+          Authorization: user.id
+        }
+      })
+      console.log('delete')
+      console.log(res)
+      getSavedSamples()
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="App">
@@ -44,10 +100,10 @@ function App() {
       <Route exact path='/search' render={() => <SearchPage />} />
       <Route exact path='/signup' render={() => <SignUpPage />} />
       <Route exact path='/login' render={() => <LoginPage />} />
-      <Route exact path='/sample/:id' render={() => <EachSamplePage />} />
+      <Route exact path='/sample/:id' render={() => <EachSamplePage deleteSaved={deleteSaved} favIds={favIds} favSamples={favSamples} saveSample={saveSample} />} />
       <Route exact path='/upload' render={() => <UploadPage />} />
       <Route exact path='/usersample/:id' render={() => <UserSamplePage />} />
-      <Route exact path='/profile' render={() => <ProfilePage />} />
+      <Route exact path='/profile' render={() => <ProfilePage favSamples={favSamples} />} />
       <Route exact path='/editusersample/:id' render={() => <EditSamplePage />} />
 
     </div>

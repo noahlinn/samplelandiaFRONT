@@ -49,6 +49,7 @@ const UploadPage = () => {
                     }
                 }
             )
+            console.log(res.data)
             setResults(res.data)
             setRedirect(true)
         } catch (error) {
@@ -58,7 +59,7 @@ const UploadPage = () => {
 
     return (
         <>
-        { redirect && <Redirect to={`/usersample/${results.id}`} exact /> }
+        { redirect && <Redirect to={`/sample/${results.id}`} exact /> }
         <h2>Upload Sample</h2>
             <form encType="multipart/form-data" onSubmit={handleSubmit}>
                 <div>

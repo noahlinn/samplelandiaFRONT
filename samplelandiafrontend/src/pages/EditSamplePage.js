@@ -50,7 +50,7 @@ const EditSamplePage = () => {
 
     return (
         <div>
-            {redirect && <Redirect to={`/usersample/${oneSample.id}`} exact />}
+            {redirect && <Redirect to={`/sample/${oneSample.id}`} exact />}
 
             <form className="log-sign-form" onSubmit={onSubmit}>
                 <div>
