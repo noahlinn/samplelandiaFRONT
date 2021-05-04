@@ -26,20 +26,19 @@ const LoginPage = () => {
     }
 
     return(
-        <div>
+        <div className="login-div">
+            <h1>Login</h1>
         { redirect && <Redirect to={`/`} exact /> }
-        <form className="log-sign-form" onSubmit={handleSubmit}>
-            <div>
+        <form className="login-form" onSubmit={handleSubmit}>
+            
                 <label htmlFor="email">Email</label>
-                <input value={input.email} onChange={(e) => setInput({...input, email: e.target.value})} />
-            </div>
-            <div>
+                <input className="login-form-input" value={input.email} onChange={(e) => setInput({...input, email: e.target.value})} />
+        
                 <label htmlFor="password">Password</label>
-                <input type="password" value={input.password} onChange={(e) => setInput({...input, password: e.target.value})} />
-            </div>
-            <div>
-                <input type="submit" value="Log In!" />
-            </div>
+                <input className="login-form-input" type="password" value={input.password} onChange={(e) => setInput({...input, password: e.target.value})} />
+           
+                <input className="submit-login"type="submit" value="Log In!" />
+            
         </form>
     </div>
     )

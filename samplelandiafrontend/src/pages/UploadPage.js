@@ -58,12 +58,12 @@ const UploadPage = () => {
     }
 
     return (
-        <>
+        <div className= "upload-page">
         { redirect && <Redirect to={`/sample/${results.id}`} exact /> }
-        <h2>Upload Sample</h2>
-            <form encType="multipart/form-data" onSubmit={handleSubmit}>
+        <h1>Upload Sample</h1>
+            <form className="upload-form"encType="multipart/form-data" onSubmit={handleSubmit}>
                 <div>
-                    <input type="file" onChange={changeHandler} required />
+                    <input className="upload-file" type="file" onChange={changeHandler} required />
                 </div>
                 <div>
                     <textarea type='textarea' placeholder='Description' onChange={(e) => setDescription({ description: e.target.value })} />
@@ -73,12 +73,12 @@ const UploadPage = () => {
                     {error && <div className="error">{error}</div>}
                     {file && <div className="file">{file.name}</div>}
                 </div>
-                <input type="submit" value="Submit" />
+                <input className="submit-button" type="submit" value="Submit" />
             </form>
  
 
             {/* <button onClick={download}>Download</button> */}
-        </>
+        </div>
     )
 }
 export default UploadPage

@@ -1,12 +1,259 @@
-@import url(//db.onlinewebfonts.com/c/36c06b5106bed2e2ef2d58902a4b7a31?family=Onyx);
-
-@font-face {font-family: "Onyx"; src: url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.eot"); src: url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.woff") format("woff"), url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.svg#Onyx") format("svg"); }
-
 .App {
   text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-bar {
+  background-color: hsla(191, 65%, 45%, 0.262);
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 70%;
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: rgba(0, 0, 0, 0.269);
+  padding: 20px
+}
+
+.login-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 70%;
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: rgba(0, 0, 0, 0.269);
+  padding: 20px
+}
+.profile-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 70%;
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: rgba(0, 0, 0, 0.269);
+  padding: 20px;
+  color:aliceblue;
+}
+
+.profile-div h1{
+  font-size: 60px;
+}
+
+.login-form{
+  color:aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-div h1{
+  color:aliceblue;
+}
+
+.login-form label{
+  font-size:25px;
+  margin: 5px
+}
+
+.login-form-input{
+  width: 200px;
+  margin: 5px;
+  height: 25px
+}
+
+.submit-login{
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.home-header {
+  color: aliceblue;
+  font-size: 75px;
+}
+
+.home-div p {
+  color: aliceblue;
+}
+
+.search-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 70%;
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: rgba(0, 0, 0, 0.269);
+  padding: 20px;
+  color: aliceblue
+}
+
+.upload-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 70%;
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: rgba(0, 0, 0, 0.269);
+  padding: 20px;
+  color: aliceblue
+}
+
+.upload-page h1{
+  font-size: 60px;
+}
+.upload-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-form textarea{
+  width: 300px;
+  height: 100px;
+  margin: 20px
 }
 
 
+
+.submit-button{
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.upload-file{
+  text-align: center;
+  width: 350px
+}
+
+.free-button {
+  background-color: hsla(191, 67%, 65%, 0.516);
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.free-button-dis {
+  background-color: white;
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.samp-button {
+  background-color: hsla(191, 67%, 65%, 0.516);
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.samp-button-dis {
+  background-color: white;
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.search-div h1 {
+  font-size: 60px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-query {
+  margin: 10px;
+  height: 30px;
+  width: 300px;
+}
+
+.submit-search {
+  margin: 10px;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+}
+
+
+
+.search-results {
+  min-width: 70%;
+  max-width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.each-result-div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 75px;
+  border: 1px solid aliceblue;
+  margin: 10px;
+  align-content: center;
+  justify-content: center;
+}
+
+.each-result-div p3{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+}
+
+.result-buttons{
+  display: flex;
+  margin: 15px;
+}
+
+.more-button{
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.new-button{
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.link {
+  color: white;
+}
 
 .App-header {
   background-color: #282c34;
@@ -22,5 +269,3 @@
 .App-link {
   color: #61dafb;
 }
-
-

@@ -9,9 +9,9 @@ const ProfilePage = (props) => {
     const [user, setUser] = userState
 
     return (
-        <div>
+        <div className="profile-div">
             <div>
-                <h2>Hello, {user.name}</h2>
+                <h1>Hello, {user.name}</h1>
                 {console.log(user.id)}
                 <UserSamples user={user} setUser={setUser} />
             </div>

@@ -9,7 +9,7 @@ const SearchPage = () => {
     const [query, setQuery] = useState("")
     const [page, setPage] = useState(1)
     const [results, setResults] = useState(false)
-    const [freeSounds, setFreeSounds] = useState('maybe')
+    const [freeSounds, setFreeSounds] = useState(true)
 
     const handleSubmit = async (e) => {
         setResults(true)
@@ -17,18 +17,18 @@ const SearchPage = () => {
         if (freeSounds === true) {
             getFreeSoundSamples()
         }
-        else if (freeSounds === false){
+        else if (freeSounds === false) {
             getSampleLandiaSamples()
         }
-        else{
-           return null
+        else {
+            return null
         }
     }
 
     const getSampleLandiaSamples = () => {
         axios.get(`${backEnd}/userCreatedSamples/search/${query.query}`).then(
             res => setSamples(res.data)
-            
+
         )
     }
 
@@ -48,8 +48,9 @@ const SearchPage = () => {
         setPage(1)
     }
 
-    const setTrue = () => {
+    const setTrue = (e) => {
         setFreeSounds(true)
+        
     }
 
     const setFalse = () => {
@@ -57,23 +58,24 @@ const SearchPage = () => {
     }
 
     return (
-        <>
+        <div className="search-div">
             {results === false &&
                 <>
                     <h1>Search</h1>
-                    <button onClick={setTrue}>FreeSounds</button>
-                    <button onClick={setFalse}>sampleLandia</button>
+                    <span className="search-buttons"><button className={freeSounds ? "free-button" : "free-button-dis"} onClick={setTrue}>FreeSounds</button>
+                    <button className={freeSounds ? "samp-button-dis" : "samp-button"}onClick={setFalse}>sampleLandia</button></span>
+                    {freeSounds ? <p>Search FreeSounds</p> : <p>Search sampleLandia</p>}
                     <SearchBar setPage={setPage} query={query} setQuery={setQuery}
                         handleSubmit={handleSubmit} freeSounds={freeSounds} setFreeSounds={setFreeSounds} /> </>}
 
             {/* {samples.length > 1 && */}
-            {results && <> <h1>Results</h1><SearchResults samples={samples}/> 
-              {freeSounds && <button onClick={() => { onClick() }}>See More</button>}  
-                <button onClick={() => { newSearch() }}>New Search?</button>
+            {results && <> <h1>Results</h1><SearchResults samples={samples} />
+               <span className="result-buttons"> {freeSounds && <button className="more-button" onClick={() => { onClick() }}>See More</button>}
+                <button className="new-button" onClick={() => { newSearch() }}>New Search?</button></span>
             </>}
 
 
-        </>
+        </div>
     )
 }
 
