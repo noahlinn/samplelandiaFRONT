@@ -1,17 +1,12 @@
+@import url(//db.onlinewebfonts.com/c/36c06b5106bed2e2ef2d58902a4b7a31?family=Onyx);
+
+@font-face {font-family: "Onyx"; src: url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.eot"); src: url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.woff") format("woff"), url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/36c06b5106bed2e2ef2d58902a4b7a31.svg#Onyx") format("svg"); }
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -28,11 +23,4 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+

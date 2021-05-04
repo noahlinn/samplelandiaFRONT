@@ -13,7 +13,7 @@ const SingleSample = (props) => {
         <>
             <h1>{props.oneSample.name}</h1>
             {props.favIds.includes(params.id) 
-            ? <span onClick = {() => props.deleteSaved(params.id)}>♡</span>
+            ? <span onClick = {() => props.deleteSaved(params.id)}>❤️</span>
             : <span onClick = {() => props.saveSample(params.id, props.oneSample.name)}>♡</span>}
             
             <p>{props.oneSample.description}</p>

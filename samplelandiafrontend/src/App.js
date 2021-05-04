@@ -102,7 +102,7 @@ function App() {
       <Route exact path='/login' render={() => <LoginPage />} />
       <Route exact path='/sample/:id' render={() => <EachSamplePage deleteSaved={deleteSaved} favIds={favIds} favSamples={favSamples} saveSample={saveSample} />} />
       <Route exact path='/upload' render={() => <UploadPage />} />
-      <Route exact path='/usersample/:id' render={() => <UserSamplePage />} />
+      {/* <Route exact path='/usersample/:id' render={() => <UserSamplePage />} /> */}
       <Route exact path='/profile' render={() => <ProfilePage favSamples={favSamples} />} />
       <Route exact path='/editusersample/:id' render={() => <EditSamplePage />} />
 

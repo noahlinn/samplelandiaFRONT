@@ -17,7 +17,8 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.post(`${backEnd}/users/login`, input).then(
-            (res) => {localStorage.setItem('userId', res.data.user.id)
+            (res) => {localStorage.setItem('userId', res.data.encryptedId)
+            console.log(res.data)
             setUser(res.data.user)
             setRedirect(true)
           

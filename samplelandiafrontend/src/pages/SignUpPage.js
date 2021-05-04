@@ -16,7 +16,7 @@ const SignUpPage = () => {
         axios.post(`${backEnd}/users`, input).then(
             (res) => {
                 console.log(res)
-                localStorage.setItem('userId', res.data.newUser.id)
+                localStorage.setItem('userId', res.data.encryptedId)
                 setUser(res.data.newUser)
                 setRedirect(true)
             }
