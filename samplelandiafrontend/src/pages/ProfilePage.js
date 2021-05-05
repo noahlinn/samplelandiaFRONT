@@ -1,25 +1,43 @@
 import { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../context/usercontext'
-import UserSamples from '../components/UserSamples'
+
 import FavoriteSamples from '../components/FavoriteSamples'
+import SearchResults from '../components/SearchResults'
 import axios from 'axios'
 const ProfilePage = (props) => {
+
     const backEnd = process.env.REACT_APP_BACKEND
     const { userState } = useContext(UserContext)
     const [user, setUser] = userState
+    const [samples, setSamples] = useState([])
+
+
+    const getUserSamples = async () => {
+        console.log('start')
+        let res = await axios.get(`${backEnd}/users/samples`, {
+            headers: {
+                Authorization: user.id
+            }
+        })
+        console.log('done')
+        setSamples(res.data)
+    }
+
+    useEffect(() => { getUserSamples() }, [user])
 
     return (
         <div className="profile-div">
-            <div>
-                <h1>Hello, {user.name}</h1>
-                {console.log(user.id)}
-                <UserSamples user={user} setUser={setUser} />
+            <h1>Hello, {user.name}</h1>
+            <h2>User Samples</h2>
+            <div className="user-samples">
+                
+                {samples.length > 0 ? <SearchResults samples={samples} />
+                    : <p>...loading</p>}
             </div>
-            <div>
-                <h2>Favorite Samples</h2>
-                {/* {props.favLandia.length > 0 ?  */}
-                <FavoriteSamples favSamples={props.favSamples}/>
-                    {/* : <p>...loading</p>} */}
+            <h2>Favorite Samples</h2>
+            <div className="user-samples">
+                
+                <FavoriteSamples favSamples={props.favSamples} />
             </div>
         </div>
     )

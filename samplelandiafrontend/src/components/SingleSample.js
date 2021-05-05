@@ -10,11 +10,12 @@ const SingleSample = (props) => {
     const [user, setUser] = userState
 
     return (
-        <>
+        <div className = "profile-div">
             <h1>{props.oneSample.name}</h1>
+            
             {props.favIds.includes(params.id) 
-            ? <span onClick = {() => props.deleteSaved(params.id)}>❤️</span>
-            : <span onClick = {() => props.saveSample(params.id, props.oneSample.name)}>♡</span>}
+            ? <span onClick = {() => props.deleteSaved(params.id)}><h2 className="heart-fill">❤️</h2></span>
+            : <span onClick = {() => props.saveSample(params.id, props.oneSample.name)}><h2 className="heart-hollow">♡</h2></span>}
             
             <p>{props.oneSample.description}</p>
             <AudioPlayer
@@ -23,13 +24,14 @@ const SingleSample = (props) => {
             // onPlay={e => console.log("onPlay")}
             // other props here
 
-            />
-     
-            <button onClick={props.downloadFile}>Download Sample</button>
+            /><div className="dl-div" onClick={props.downloadFile} >
+            <img className="dl-image"src="https://icon-library.com/images/white-download-icon/white-download-icon-4.jpg"/>
+            <p>download</p>
+            </div>
             {props.oneSample.userId === user.id && <>
                 <OwnerButtons oneSample={props.oneSample}/>
                 </>}
-        </>
+        </div>
     )
 }
 export default SingleSample
