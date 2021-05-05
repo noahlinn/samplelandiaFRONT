@@ -28,7 +28,7 @@ function App() {
           Authorization: userId
         }
       })
-      console.log(res)
+      
       if (res.data.user) {
         setUser(res.data.user)
       }
@@ -49,7 +49,6 @@ function App() {
           Authorization: user.id
         }
       })
-      console.log(res)
       getSavedSamples()
     } catch (error) {
       console.log(error)
@@ -83,10 +82,7 @@ function App() {
           Authorization: user.id
         }
       })
-      console.log('delete')
-      console.log(res)
       getSavedSamples()
-      
     } catch (error) {
       console.log(error)
     }

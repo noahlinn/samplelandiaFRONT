@@ -18,7 +18,6 @@ const LoginPage = () => {
         e.preventDefault()
         axios.post(`${backEnd}/users/login`, input).then(
             (res) => {localStorage.setItem('userId', res.data.encryptedId)
-            console.log(res.data)
             setUser(res.data.user)
             setRedirect(true)
           

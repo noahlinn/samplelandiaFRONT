@@ -49,7 +49,6 @@ const UploadPage = () => {
                     }
                 }
             )
-            console.log(res.data)
             setResults(res.data)
             setRedirect(true)
         } catch (error) {

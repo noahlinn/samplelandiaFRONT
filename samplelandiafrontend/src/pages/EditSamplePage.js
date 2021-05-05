@@ -20,51 +20,30 @@ const EditSamplePage = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        console.log(oneSample)
         try {
             const res = await axios.put(`${backEnd}/usercreatedsamples/${params.id}`, oneSample)
-            console.log(res)
             setRedirect(true)
         } catch (error) {
             console.log(error)
         }
     }
 
-    // const urltoFile = (url, filename, mimeType) => {
-    //     mimeType = mimeType || (url.match(/^data:([^;]+);/) || '')[1];
-    //     return (fetch(url)
-    //         .then(function (res) { return res.arrayBuffer(); })
-    //         .then(function (buf) { return new File([buf], filename, { type: mimeType }); })
-    //     );
-    // }
-    // useEffect(() => { test() }, [getOneSample])
-
-
-    // const test = () => {
-    //     urltoFile(oneSample.file, oneSample.name)
-    //     .then(function (file) {
-    //         setFile(file);
-    //     })
-    // }
-
-
     return (
-        <div>
+        <div className="edit-page">
             {redirect && <Redirect to={`/sample/${oneSample.id}`} exact />}
-
-            <form className="log-sign-form" onSubmit={onSubmit}>
-                <div>
+            <h2>Edit Sample</h2>
+            <form className="login-form" onSubmit={onSubmit}>
+                
                     <label htmlFor="title">Title</label>
                     <input value={oneSample.name} onChange={(e) => setOneSample({ ...oneSample, name: e.target.value })} />
-                </div>
+                
 
-                <div>
+                
                     <label htmlFor="description">Description</label>
                     <textarea type="text" value={oneSample.description} onChange={(e) => setOneSample({ ...oneSample, description: e.target.value })} />
-                </div>
-                <div>
+            
                     <input type="submit" value="Update Sample!" />
-                </div>
+                
             </form>
         </div>
     )

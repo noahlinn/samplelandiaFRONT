@@ -21,9 +21,6 @@ const SingleSample = (props) => {
             <AudioPlayer
                 autoPlay={false}
                 src={props.preview}
-            // onPlay={e => console.log("onPlay")}
-            // other props here
-
             /><div className="dl-div" onClick={props.downloadFile} >
             <img className="dl-image"src="https://icon-library.com/images/white-download-icon/white-download-icon-4.jpg"/>
             <p>download</p>

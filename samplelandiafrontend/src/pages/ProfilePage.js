@@ -13,13 +13,11 @@ const ProfilePage = (props) => {
 
 
     const getUserSamples = async () => {
-        console.log('start')
         let res = await axios.get(`${backEnd}/users/samples`, {
             headers: {
                 Authorization: user.id
             }
         })
-        console.log('done')
         setSamples(res.data)
     }
 

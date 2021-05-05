@@ -7,7 +7,6 @@ const OwnerButtons = (props) => {
     const [redirect, setRedirect] = useState(false)
 
     const deleteClick = async () => {
-        console.log(props.oneSample.id)
         let res = await axios.delete(`${backEnd}/userCreatedSamples/${props.oneSample.id}`)
         setRedirect(true)
     }
@@ -16,8 +15,8 @@ const OwnerButtons = (props) => {
             { redirect && <Redirect to={`/profile`} exact />}
 
             <span>
-               <Link to ={`/editusersample/${params.id}`}><button>Edit Name/Description</button></Link>
-                <button onClick={deleteClick}>Delete Sample</button>
+               <Link to ={`/editusersample/${params.id}`}><button className="edit-button">Edit Name/Description</button></Link>
+                <button className="delete-button" onClick={deleteClick}>Delete Sample</button>
             </span>
         </>
     )
